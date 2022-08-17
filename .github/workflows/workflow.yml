@@ -1,14 +1,25 @@
-name: Slack Issues
+# This is a basic workflow to showcase the use of Reusable Workflows
 
-on: [push, pull_request, issues]
+name: Reusable Workflow user
+
+on:
+  workflow_dispatch:
 
 jobs:
-  post_slack_message:
+  do-it:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: rtCamp/action-slack-notify@v2.0.0
-    env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: Rushikesh 
-        SLACK_CHANNEL: general
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+  docker:
+    uses: rushikesh4245/Reusable-workflow/.github/workflows/build-image.yml@master
+    with:
+      image_name: my-awesome-app
+      tag: $GITHUB_RUN_NUMBER
+    secrets:
+      registry_username: ${{secrets.REGISTRY_USERNAME}}
+      registry_password: ${{secrets.REGISTRY_PASSWORD}}
