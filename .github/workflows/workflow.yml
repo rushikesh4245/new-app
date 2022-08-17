@@ -22,4 +22,4 @@ jobs:
       tag: $GITHUB_RUN_NUMBER
     secrets:
       registry_username: ${{ secrets.REGISTRY_USERNAME }}
-      registry_password: ${{ secrets.REGISTRY_PASSWORD }}
+      registry_password: ${{ secrets.DOCKERHUB_TOKEN }}
