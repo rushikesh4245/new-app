@@ -16,10 +16,10 @@ jobs:
         run: echo Hello, world!
 
   docker:
-    uses: rushikesh4245/Reusable-workflow/.github/workflows/build-image.yml@master
+    uses: n3wt0n/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     with:
       image_name: my-awesome-app
       tag: $GITHUB_RUN_NUMBER
     secrets:
-      registry_username: ${{ secrets.REGISTRY_USERNAME }}
-      registry_password: ${{ secrets.DOCKERHUB_TOKEN }}
+      registry_username: ${{secrets.REGISTRY_USERNAME}}
+      registry_password: ${{secrets.REGISTRY_PASSWORD}}
