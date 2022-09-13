@@ -1,2 +1,1 @@
-
-hello rushi thsi sample2 from rushi branch
+hello rushi this changes are from master branch
